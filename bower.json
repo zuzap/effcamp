@@ -1,0 +1,14 @@
+{
+  "name": "camp_barebone",
+  "version": "0.0.0",
+  "homepage": "https://github.com/efigence/camp_barebone",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
