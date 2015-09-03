@@ -5,7 +5,10 @@
 	<meta charset="UTF-8">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/icon-style.css" rel="stylesheet">
 	<link href="css/app.css" rel="stylesheet">
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/scripts.js"></script>
 </head>
 <body>
 	<div class="container status-bar">
@@ -49,14 +52,14 @@
 		</div>
 	</div>
 	<div class="container news">
-		<div class="row">
-			<div class="col-md-6">
+		<div class="row news-row">
+			<div class="col-md-6 news-left">
 				<h2>Co to jest?</h2>
 				<p>Morbi imperdiet, mauris rutrum feugiat ultrices, orci felis dictum justo, at dictum libero tellus quis turpis. Fusce cursus ligula in nisl dictum lacinia. Nunc tristique diam non tincidunt consectetur. Suspendisse ultricies ante ac arcu viverra faucibus. Etiam mollis, erat et rutrum dapibus, magna turpis placerat diam, at sodales sapien orci facilisis diam. Vivamus congue elit justo. Nunc vitae venenatis tortor. Vivamus rhoncus tincidunt tellus. Sed quis sem nec ex molestie accumsan. Nam sed enim sapien.</p>
 				<p>Quisque faucibus metus id fermentum dignissim. Donec condimentum sem odio, sit amet sagittis lectus tincidunt aliquam. Etiam molestie enim sed libero placerat, in luctus quam viverra. Vivamus vitae volutpat quam. Integer vitae imperdiet augue. Vestibulum elementum ex non massa iaculis, id auctor eros gravida. Cras accumsan non mi vitae egestas. Sed velit mauris, convallis in purus sed, pharetra suscipit nibh. velit nunc, ut aliquet lacus auctor eu. Quisque sagittis sem non nisi vulputate luctus.</p>
 				<a href="#" class="dalej">Czytaj dalej...</a>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 news-right">
 				<h2>Aktualności</h2>
 				<section>
 					<h3>News title 1</h3>
@@ -95,8 +98,26 @@
 	</div>
 	<div class="container testimonials">
 		<div class="row">
-			<div class="col-md-2">
+		<div class="col-md-2 testimonials-empty-left"><</div>
+			<div class="col-md-2 testimonials-col">
+			<img src="img/bike.png" class="testimonials-pic-1">
+				<h5 class="header-1">Skoki ze spadochronem</h5>
+				<p>Aliquam scelerisque erat sed dolor. Cras metus est, accumsan at libero ac, elementum bibendum nisi. Vivamus vel laoreet orci...</p>
+				<a href="">Czytaj więcej...</a>
 			</div>
+			<div class="col-md-2 testimonials-col">
+			<img src="img/diving.png" class="testimonials-pic-2">
+				<h5 class="header-2">Nurkowanie</h5>
+				<p>Aliquam scelerisque erat sed dolor. Cras metus est, accumsan at libero ac, elementum bibendum nisi. Vivamus vel laoreet orci...</p>
+				<a href="">Czytaj więcej...</a>
+			</div>
+			<div class="col-md-2 testimonials-col">
+			<img src="img/parachute-jump.png" class="testimonials-pic-3">
+				<h5 class="header-3">Jazda na rowerze</h5>
+				<p>Aliquam scelerisque erat sed dolor. Cras metus est, accumsan at libero ac, elementum bibendum nisi. Vivamus vel laoreet orci...</p>
+				<a href="">Czytaj więcej...</a>
+			</div>
+			<div class="col-md-2 testimonials-empty-right"><button id="right-btn">></button></div>
 		</div>
 	</div>
 	<div class="container contact">

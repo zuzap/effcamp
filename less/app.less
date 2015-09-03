@@ -2,6 +2,7 @@ body {
 	font-family: "Roboto Condensed", sans-serif;
 }
 
+
 .bold {
 	font-weight: bold;
 }
@@ -13,48 +14,14 @@ body {
 	}
 }
 
-.nav-icons {
-	font-family: icomoon;
-	font-size: 18px;
+.status-bar {
+	background-color: #276187;
 }
-
-.icons {
-	font-family: icomoon;
-}
-
-.icon-unlocked:before {
-	content: "\e608";
-}
-
-.icon-facebook3:before {
-	content: "\e614";
-};
-
-.icon-twitter3:before {
-	content: "\e615";
-}
-
-.icon-search:before {
-	content: "\e605";
-	font-size: 18px;
-}
-
-.icon-play2:before {
-    content: "\e60f";
-	font-size: 18px;
-}
-
-.icon-location:before {
-	content: "\e602";
-	font-size: 18px;
-}
-
 
 .navigation-bar {
 	background: url(../img/abstract_geometric.png) center center no-repeat;
 	color: white;
 }
-
 
 .nav {
 	text-align: center;
@@ -66,35 +33,75 @@ body {
 	color: white;
 }
 
+.news-left {
+	background: url(../img/abstract_geometric_low_poly.png);
+	color: white;
+}
+
+.news-right {
+	background-color: #00101c;
+	color: white;
+}
+
 .proposals {
 	.col-md-4 {
 		height: 200px;
 	}
 }
 
-.bledne-skaly {
-	background: url(../img/bledne-skaly.png);
-	background-size: 100% auto;
+@import "proposals-pics.less";
+
+.testimonials {
+	background: url(../img/abstract_geometric_low_poly.png);
+	height: 400px;
 }
 
-.krakow {
-	background: url(../img/krakow.png);
+.testimonials-col {
+	background-color: #00101c;
+	height: 300px;
+	margin: 10px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: white;
+	padding: 5px;
 }
 
-.mazury {
-	background: url(../img/mazury.png);
+.testimonials-empty-left {
+	height: 300px;
+	margin: 10px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: white;
+	padding: 5px;
+	text-align: right;
+	font-size: 150px;
+	line-height: 300px;
 }
 
-.morze {
-	background: url(../img/morze.png);
+.testimonials-empty-right {
+	height: 300px;
+	margin: 10px;
+	line-height: 300px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: white;
+	padding: 5px;
+	text-align: left;
+	font-size: 150px;
 }
 
-.warszawa {
-	background: url(../img/warszawa.png);
+.testimonials-col>p {
+	font-size: 10px;	
 }
 
-.wroclaw {
-	background: url(../img/wroclaw.png);
+.testimonials-pic-1,
+.testimonials-pic-2,
+.testimonials-pic-3 {
+	width: 100%;
+}
+
+.contact {
+	height: 300px;
 }
 
 .footer {
