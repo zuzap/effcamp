@@ -1,5 +1,8 @@
+@import "sub.less";
+
 body {
 	font-family: "Roboto Condensed", sans-serif;
+	font-weight: 300;
 }
 
 
@@ -9,6 +12,7 @@ body {
 
 .inline-list {
 	list-style: none;
+	margin-bottom: 0px;
 	& > li {
 		display:inline;
 	}
@@ -16,21 +20,97 @@ body {
 
 .status-bar {
 	background-color: #276187;
+	opacity: 0.8;
+	padding: 10px;
+	a {
+		color: white;
+		margin-left: 15px;
+	}
+}
+
+.nav-icons {
+	margin-right: 5px;
 }
 
 .navigation-bar {
+	background-color: #0c4f7c;
 	background: url(../img/abstract_geometric.png) center center no-repeat;
 	color: white;
+	opacity: 0.702;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #75b8e5;
+	padding: 0px;
+
+	.row {
+		height: 40px;
+	}
 }
 
 .nav {
 	text-align: center;
+	padding-left: 30px;
+}
+
+.nav-link {
+	color: white;
+	font-size: 16px;
+	line-height: 40px;
+	&:hover {
+		background-color: transparent !important;
+		color: white;
+		border-bottom: solid;
+		border-color: #f9d100;
+		border-radius: 0;
+	}
+}
+
+.logo {
+	font-size: 20px;
+	margin: 10px;
+	line-height: 40px;
+}
+
+.input-szukaj {
+	margin: 10px;
 }
 
 .apla {
 	text-align: center;
 	background: url(../img/morskie-oko-panorama-duza.png) center center no-repeat;
+	background-size: cover;
 	color: white;
+	padding-top: 100px;
+	padding-bottom: 100px;
+
+	h1 {
+		text-shadow: 1px 1px rgba(0,0,0,0.6);
+	}
+
+	p {
+		font-size: 18px;
+		text-shadow: 1px 1px rgba(0,0,0,0.6);
+	}
+
+	.icons {
+		font-size: 55px;
+		color: #496b7d;
+		opacity: 0.8;
+	}
+
+}
+
+.apla-textbox {
+	background: -webkit-linear-gradient(top,rgba(255,255,255,0.5),rgba(255,255,255,0));
+	-webkit-box-shadow: 7px -7px 16px -6px rgba(0,0,0,0.5);
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-left: 30px;
+	padding-right: 30px;	
+}
+
+.news {
+	font-size: 12px;
 }
 
 .news-left {
