@@ -4,7 +4,53 @@
 	height: 300px;
 }
 
+.offers-header {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 13px;
+
+	ul {
+		display: inline;
+		padding-left: 0;
+	}
+
+	row {
+		display: -webkit-box;
+    	display: -webkit-flex;
+    	display: flex;
+    	flex:1 0 auto;
+	}
+}
+
+.img-col {
+	text-align: right;
+
+	img {
+		width: 100%;
+	}
+}
+
 .offers-nav {
 	background-color: #427ca2;
 	height: 50px;
+}
+
+.offers-table {
+
+	.row:nth-child(odd) {
+		background-color: #edeff2;
+	}
+
+	display: table;
+	.row {
+		display: table-row;
+	}
+
+	div[class^="col-"] {
+		display: table-cell;
+	}
+}
+
+.oldprice {
+	text-decoration: line-through;
 }

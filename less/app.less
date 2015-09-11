@@ -1,4 +1,5 @@
 @import "sub.less";
+@import "main.less";
 
 body {
 	font-family: "Roboto Condensed", sans-serif;
@@ -56,12 +57,16 @@ body {
 	color: white;
 	font-size: 16px;
 	line-height: 40px;
+	border-bottom: solid;
+	border-color: transparent;
+	border-radius: 0px;
 	&:hover {
 		background-color: transparent !important;
 		color: white;
+		-webkit-box-sizing: border-box;
 		border-bottom: solid;
 		border-color: #f9d100;
-		border-radius: 0;
+		border-radius: 0px;
 	}
 }
 
@@ -75,111 +80,6 @@ body {
 	margin: 10px;
 }
 
-.apla {
-	text-align: center;
-	background: url(../img/morskie-oko-panorama-duza.png) center center no-repeat;
-	background-size: cover;
-	color: white;
-	padding-top: 100px;
-	padding-bottom: 100px;
-
-	h1 {
-		text-shadow: 1px 1px rgba(0,0,0,0.6);
-	}
-
-	p {
-		font-size: 18px;
-		text-shadow: 1px 1px rgba(0,0,0,0.6);
-	}
-
-	.icons {
-		font-size: 55px;
-		color: #496b7d;
-		opacity: 0.8;
-	}
-
-}
-
-.apla-textbox {
-	background: -webkit-linear-gradient(top,rgba(255,255,255,0.5),rgba(255,255,255,0));
-	-webkit-box-shadow: 7px -7px 16px -6px rgba(0,0,0,0.5);
-	padding-top: 50px;
-	padding-bottom: 50px;
-	padding-left: 30px;
-	padding-right: 30px;	
-}
-
-.news {
-	font-size: 12px;
-}
-
-.news-left {
-	background: url(../img/abstract_geometric_low_poly.png);
-	color: white;
-}
-
-.news-right {
-	background-color: #00101c;
-	color: white;
-}
-
-.proposals {
-	.col-md-4 {
-		height: 200px;
-	}
-}
-
-@import "proposals-pics.less";
-
-.testimonials {
-	background: url(../img/abstract_geometric_low_poly.png);
-	height: 400px;
-}
-
-.testimonials-col {
-	background-color: #00101c;
-	height: 300px;
-	margin: 10px;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	color: white;
-	padding: 5px;
-}
-
-.testimonials-empty-left {
-	height: 300px;
-	margin: 10px;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	color: white;
-	padding: 5px;
-	text-align: right;
-	font-size: 150px;
-	line-height: 300px;
-}
-
-.testimonials-empty-right {
-	height: 300px;
-	margin: 10px;
-	line-height: 300px;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	color: white;
-	padding: 5px;
-	text-align: left;
-	font-size: 150px;
-}
-
-.testimonials-col>p {
-	font-size: 10px;	
-}
-
-.testimonials-pic-1,
-.testimonials-pic-2,
-.testimonials-pic-3 {
-	width: 100%;
-}
-
 .contact {
 	height: 300px;
 }
@@ -187,4 +87,15 @@ body {
 .footer {
 	background-color: #00101c;
 	color: white;
+	padding: 10px;
+	font-size: 12px;
+
+	.row {
+		width: 100%;
+	}
+
+	a {
+		color: #bca51d;
+		text-decoration: underline;
+	}
 }
