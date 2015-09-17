@@ -1,49 +1,70 @@
-$(document).ready(function(){
-  var path = "http://camp.efigence.com/camp/api/places?page=1",
-      btn = $("#right-btn"),
-      e = 0,
-      path1,
-      path2,
-      path3,
-      new_place,
-      place1,
-      place2,
-      place3,
-      new_path;
+var App = {
+  path: "http://camp.efigence.com/camp/api/places?page=",
+  facilities: {
+          'airport':  'icon-clock2',
+          'food':     'icon-spoon-knife',
+          'parking':  'icon-bookmark',
+          'paypass':  'icon-credit-card',
+          'swimimng': 'icon-cross',
+          'tv':       'icon-unlocked',
+          'wifi':     'icon-connection'
+        },
 
-  $.ajax({
-    url: path,
+  init: function(){
+    var that = this;
+    $.ajax({
+      url: this.path,
+      success: function(data){
+        for (var i=1; i <= data.total_pages; i++) {
+          $('.page-list').append('<li class="page-num">' + i + '</li>');
+        }
+      }
+    })
+    this.load_page(1);
+    $('.btn-next-offers').click(function(){
+      that.change_page();
+    });
+  },
+
+  load_page: function(pagenum){
+    var facilities = this.facilities;
+    $.ajax({
+    url: this.path + pagenum,
     success: function(data){
-
-      var n = 0;
-      var row_num = 2;
-      var sel_path = '.offers-table .row:nth-child(' + row_num.toString() + ') '
-
-      var sc,
-      ocena,
-      badges_html = [],
-      table_html = [];
+      var n = 0,
+          row_num = 2,
+          sel_path = '.offers-table .row:nth-child(' + row_num.toString() + ') ',
+          sc,
+          ocena,
+          table_html = [];
 
       for (n=1; n<data.places.length; n++) {
-        var stars_html = [];
-        sc = data.places[n].score;
+          var fac_html = [],
+              stars_html = [];
+          sc = data.places[n].score;
 
-        if (sc > 9) {
-          ocena = "Znakomity ";
-        } else if (sc > 8) {
-          ocena = "Bardzo dobry ";
-        } else if (sc > 7) {
-          ocena = "Dobry ";
-        } else if (sc > 5) {
-          ocena = "Średni ";
-        } else {
-          ocena = "Słaby ";
-        }
+          if (sc > 9) {
+            ocena = "Znakomity ";
+          } else if (sc > 8) {
+            ocena = "Bardzo dobry ";
+          } else if (sc > 7) {
+            ocena = "Dobry ";
+          } else if (sc > 5) {
+            ocena = "Średni ";
+          } else {
+            ocena = "Słaby ";
+          }
 
-        for (var i=0; i < data.places[n].starts; i++) {
-           stars_html.push("<span class='icon-star-full'></span>");
-        }
-          
+          for (var i=0; i < data.places[n].starts; i++) {
+             stars_html.push("<span class='icon-star-full'></span>");
+          }
+
+          for (f in facilities) {
+            if (data.places[n][f]) {
+              fac_html.push('<span class="' + facilities[f] + ' icons"></span>');
+            }
+          }
+            
           table_html.push(
           '<div class="row"> \
             <div class="col-md-3 img-col"> \
@@ -56,11 +77,9 @@ $(document).ready(function(){
               <p>' + data.places[n].description + '</p> \
               <a href="">Szczegóły</a> \
             </div> \
-            <div class="col-md-1"> \
-              <span class="icon-connection icons"></span> \
-              <span class="icon-credit-card icons"></span> \
-              <span class="icon-spoon-knife"></span> \
-            </div> \
+            <div class="col-md-1">'
+              + fac_html.join("") + 
+            '</div> \
             <div class="col-md-3"> \
               <h5><span class="ocena">' + ocena + '</span><span class="score">' + sc.toString().split('.').join(',') + '</span>/10</h5> \
               <p>Ocena na podstawie <span>'+ data.places[n].opinion_count + '</span> opinii</p> \
@@ -69,35 +88,27 @@ $(document).ready(function(){
               <p>Cena za <span class="bold">3 noce</span></p> \
             <button>Zarezerwuj teraz</button> \
           </div>'
-          );
+          );  
+        }
 
-        
-      }
+      $('.page-num').attr('class','page-num');
+      $('.page-num:nth-of-type(' + data.page + ')').attr('class','page-num active-page');
 
-      $('.offers-table').append(table_html.join(""));
-      
-    }    
-  });
+      $('.btn-next-offers').attr('page_data',data.page+1);
+      $('.btn-prev-offers').attr('page_data',data.page-1);
 
-  btn.click(function(){
-      path1 = $(".testimonials-pic-1").attr("src");
-      path2 = $(".testimonials-pic-2").attr("src");
-      // place1 = $(".header-1").attr("src");
-      // place2 = $(".header-2").attr("src");
+      $('.offers-table').html(table_html.join(""));
+      return data.page
+    } // success function end
+    }) // AJAX request end
+  }, // load_page end
+  
+  change_page: function(){
+    this.load_page(2);
+  }
 
-      $.ajax({
-        url: path, 
-        success: function(data){
-          new_path = data.places[e].image;
-          e += 1;
+}; // App end
 
-          $(".testimonials-pic-3").attr("src",path2);
-          $(".testimonials-pic-2").attr("src",path1);
-          $(".testimonials-pic-1").attr("src",new_path);
-
-      }});
-
-
-  });
-
+$(document).ready(function(){
+  App.init()
 });
