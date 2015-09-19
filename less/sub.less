@@ -22,6 +22,11 @@
 	}
 }
 
+/*.offers-list {
+	padding-left: 0px;
+	padding-right: 0px;
+}*/
+
 .img-col {
 	text-align: right;
 
@@ -32,8 +37,9 @@
 
 .offers-nav {
 	background-color: #427ca2;
-	height: 50px;
+	height: 60px;
 	color: white;
+	line-height: 60px;
 }
 
 .offers-nav-left {
@@ -48,11 +54,9 @@
 	text-align: center;
 }
 
-.active-page {
-	background-color: #bca51d;
-}
-
 .offers-table {
+
+	background-color: white;
 
 	.row:nth-child(odd) {
 		background-color: #edeff2;
@@ -65,9 +69,109 @@
 
 	div[class^="col-"] {
 		display: table-cell;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	h4 {
+		color: #a3b1bc;
+	}
+}
+
+.details-col {
+	p {
+		text-indent: 20px;
+	}
+
+	h3 {
+		margin-top: 5px;
+	}
+}
+
+.details {
+	text-align: right;
+	a {
+		color: #bca51d;
+		text-decoration: underline;
+	}
+}
+
+.stars {
+	color: #bca51d;
+	padding-bottom: 30px;
+}
+
+.fac-col {
+	font-size: 25px;
+	color: #444444;
+	.icon {
+		padding-bottom: 5px;
+	}
+}
+
+.score-col {
+	h5 {
+		color: #bca51d;
+		font-size: 18px;
+	}
+
+	button {
+		background-color: #bca51d;
+    	color: white;
+    	border: none;
+    	padding: 10px 30px 10px 30px;
+    	font-size: 12px;
+    	font-weight: 600;
 	}
 }
 
 .oldprice {
 	text-decoration: line-through;
+	color: #a3b1bc;
+	font-size: 18px;
+}
+
+.p-price {
+	font-size: 24px;
+	font-weight: 500;
+	color: #a3b1bc;
+}
+
+.price {
+	color: black;
+}
+
+.opinions {
+	color: #a3b1bc;
+}
+
+.nights {
+	font-size: 12px;
+}
+
+.btn-nav {
+	color: #3C3C3C;
+	margin: 0;
+	& > span {
+		padding-right: 10px;
+		padding-left: 10px;
+		font-size: 20px;
+	}
+}
+
+.btn-active {
+	color: white;
+	&:hover {
+		cursor: pointer;
+		cursor: hand;
+	}
+}
+
+.page-num {
+	padding: 5px 10px 5px 10px;
+
+}
+
+.active-page {
+	background-color: #bca51d;
 }

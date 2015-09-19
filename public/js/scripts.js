@@ -21,8 +21,8 @@ var App = {
       }
     })
     this.load_page(1);
-    $('.btn-next-offers').click(function(){
-      that.change_page();
+    $('.btn-nav').click(function(){
+      that.change_page($(this).attr('page-data'));
     });
   },
 
@@ -61,32 +61,36 @@ var App = {
 
           for (f in facilities) {
             if (data.places[n][f]) {
-              fac_html.push('<span class="' + facilities[f] + ' icons"></span>');
+              fac_html.push('<span class="' + facilities[f] + ' icons"></span><br>');
             }
           }
             
           table_html.push(
           '<div class="row"> \
+            <div class="col-md-1"></div> \
             <div class="col-md-3 img-col"> \
               <img src="' + data.places[n].image + '"> \
             </div> \
-            <div class="col-md-4"> \
+            <div class="col-md-4 details-col"> \
               <h3>' + data.places[n].name + '</h3> \
               <h4><span>' + data.places[n].place + '</span>, <span>' + data.places[n].district + '</span></h4> \
-              <div>' + stars_html.join("") + '</div> \
+              <div class="stars">' + stars_html.join("") + '</div> \
               <p>' + data.places[n].description + '</p> \
-              <a href="">Szczegóły</a> \
+              <div class="details"> \
+                <a href="">Szczegóły</a> \
+              </div> \
             </div> \
-            <div class="col-md-1">'
+            <div class="col-md-1 fac-col">'
               + fac_html.join("") + 
             '</div> \
-            <div class="col-md-3"> \
+            <div class="col-md-3 score-col"> \
               <h5><span class="ocena">' + ocena + '</span><span class="score">' + sc.toString().split('.').join(',') + '</span>/10</h5> \
-              <p>Ocena na podstawie <span>'+ data.places[n].opinion_count + '</span> opinii</p> \
-              <p><span class="oldprice">' + data.places[n].oldprice + '</span>PLN</p> \
-              <p><span class="price">' + data.places[n].price + '</span>PLN</p> \
-              <p>Cena za <span class="bold">3 noce</span></p> \
-            <button>Zarezerwuj teraz</button> \
+              <p class="opinions">Ocena na podstawie <span>'+ data.places[n].opinion_count + '</span> opinii</p> \
+              <p class="oldprice"><span>' + data.places[n].oldprice + '</span>PLN</p> \
+              <p class="p-price"><span class="price">' + parseFloat(data.places[n].price).toFixed(2).split('.').join(',') + '</span>PLN</p> \
+              <p class="nights">Cena za <span class="bold">3 noce</span></p> \
+              <button>Zarezerwuj teraz</button> \
+            </div> \
           </div>'
           );  
         }
@@ -94,17 +98,31 @@ var App = {
       $('.page-num').attr('class','page-num');
       $('.page-num:nth-of-type(' + data.page + ')').attr('class','page-num active-page');
 
-      $('.btn-next-offers').attr('page_data',data.page+1);
-      $('.btn-prev-offers').attr('page_data',data.page-1);
+      if (data.page == 1) {
+        $('.btn-next-offers').attr('class','btn-nav btn-next-offers btn-active');
+        $('.btn-prev-offers').attr('class','btn-nav btn-prev-offers');
+      } else if (data.page == data.total_pages) {
+        $('.btn-prev-offers').attr('class','btn-nav btn-prev-offers btn-active');
+        $('.btn-next-offers').attr('class','btn-nav btn-next-offers');
+      } else {
+        $('.btn-prev-offers').attr('class','btn-nav btn-prev-offers btn-active');
+        $('.btn-next-offers').attr('class','btn-nav btn-next-offers btn-active');
+      }
+
+      $('.btn-next-offers').attr('page-data',data.page+1);
+      $('.btn-prev-offers').attr('page-data',data.page-1);
 
       $('.offers-table').html(table_html.join(""));
-      return data.page
+      return data.total_pages;
     } // success function end
     }) // AJAX request end
   }, // load_page end
   
-  change_page: function(){
-    this.load_page(2);
+  change_page: function(p){
+    var total = 4; // TODO: data.total_pages !!
+    if (p > 0 && p <= total) {
+      this.load_page(p);
+    }
   }
 
 }; // App end
