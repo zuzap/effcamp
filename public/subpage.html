@@ -23,8 +23,8 @@
 	<div class="container navigation-bar">
 		<div class="row">
 			<div class="col-md-3">
-				<p class="logo"><span class="icon-location icons"></span>
-				<span class="bold">Hipster</span>Trip</p>
+				<a href="index.html" class="logo"><span class="icon-location icons"></span>
+				<span class="bold">Hipster</span>Trip</a>
 			</div>
 			<div class="col-md-7">
 				<ul class="nav nav-pills">
@@ -50,15 +50,19 @@
 			<div class="col-md-3">
 			<h2>Miejscówki</h2>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-5 sort-col">
 			<span>Wybierz: na mapie</span>
-			<span>Sortuj wg:</span>
+			<span class="sortuj">Sortuj wg:</span>
 			<ul class="inline-list">
-				<li>Oceny: od najwyższej</li>
-				<li>Ceny: od najniższej</li>
+				<li>Oceny: 
+					<span class="btn-sort" sortby="score" sort="descending">od najwyższej<img src="img/icon-arrow-down.png" class="arrow"></img></span>
+				</li>
+				<li>Ceny: 
+					<span class="btn-sort" sortby="price" sort="ascending">od najniższej<img src="img/icon-arrow-up.png" class="arrow"></img></span>
+				</li>
 			</ul>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 			<span>Wybierz okres:</span>
 			<ul class="inline-list">
 				<li>Od 21 lipca 2015</li>
@@ -66,7 +70,7 @@
 			</ul>
 			</div>
 		</div>
-		<div class="offers-table row"></div>
+		<div class="offers-table row" sortby="none" sort="none" page="1"></div>
 		<div class="row offers-nav">
 			<div class="col-md-4 offers-nav-left">
 				<p class="btn-nav btn-prev-offers" page-data="1"><span class="icon-circle-left icons"></span>poprzednia strona</p>

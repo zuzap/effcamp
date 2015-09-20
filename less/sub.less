@@ -5,27 +5,23 @@
 }
 
 .offers-header {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	font-size: 13px;
+	height: 80px;
 
 	ul {
 		display: inline;
 		padding-left: 0;
 	}
 
-	row {
-		display: -webkit-box;
-    	display: -webkit-flex;
-    	display: flex;
-    	flex:1 0 auto;
+	div {
+		ul,
+		span {
+			line-height: 80px;
+		}
 	}
 }
-
-/*.offers-list {
-	padding-left: 0px;
-	padding-right: 0px;
-}*/
 
 .img-col {
 	text-align: right;
@@ -174,4 +170,18 @@
 
 .active-page {
 	background-color: #bca51d;
+}
+
+.btn-sort {
+	&:hover {
+		cursor: pointer;
+	};
+}
+
+.sortuj {
+	color: #a3b1bc;
+}
+
+.sort-col {
+	font-size: 14px;
 }
